@@ -80,11 +80,11 @@ protected void setUp() {
     *
     * @param testObjects Used to create a url.
     */
-   public void testIsValid(Object[] testObjects, long allowAllSchemes) {
+   public void testIsValid(Object[] testObjects, long allowAllSchemes) { //acce[ts array of objects from the testurlparts array
 	      UrlValidator urlVal = new UrlValidator(null, null, allowAllSchemes);
 	      //UrlValidator urlVal = new UrlValidator(null, allowAllSchemes);
-      assertTrue(urlVal.isValid("http://www.google.com"));
-      assertTrue(urlVal.isValid("http://www.google.com/"));
+      assertTrue(urlVal.isValid("http://www.google.com")); //check "google.com" is valid url
+      assertTrue(urlVal.isValid("http://www.google.com/")); //check "google.com/" is valid url
       int statusPerLine = 60;
       int printed = 0;
       if (printIndex)  {
@@ -93,8 +93,9 @@ protected void setUp() {
       do {
           StringBuilder testBuffer = new StringBuilder();
          boolean expected = true;
+         // 5 cycles,
          for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
-            int index = testPartsIndex[testPartsIndexIndex];
+            int index = testPartsIndex[testPartsIndexIndex]; // 0 = 0
             ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
             testBuffer.append(part[index].item);
             expected &= part[index].valid;
